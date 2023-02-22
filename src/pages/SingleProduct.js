@@ -1,11 +1,10 @@
-import {Link, useParams} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
 import products from '../data';
-
 const SingleProduct = () => {
-  //console.log(useParams());
-  const {productsID} = useParams();
-  const product = products.find((product) => product.id === productsID)
-  const {image,name} = product;
+  const { productId } = useParams();
+  console.log(productId);
+  const product = products.find((product) => product.id === productId);
+  const { image, name } = product;
   return (
     <section className='section product'>
       <img src={image} alt={name} />
@@ -16,3 +15,5 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+
+

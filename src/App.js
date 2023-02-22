@@ -16,28 +16,29 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path='about' element={<About />} />
-            <Route path='products' element={<Products />}>
-            <Route index element={<Products />} />
-            <Route path=':productId' element={<SingleProduct />} />
-            </Route>
+          <Route index element={<Home />} />
+          <Route path='about' element={<About />} />
 
-            <Route path='login' element={<Login setUser={setUser}></Login>} />
-            <Route
-              path='dashboard'
-              element={
-                <ProtectedRoute user={user}>
-                  <Dashboard user={user} />
-                </ProtectedRoute>
-              }
-              />
-            <Route path='*' element={<Error />} />
-          </Route>
+          <Route path='products' element={<Products />} />
+            
+          <Route path='products/:productId' element={<SingleProduct />} />
+         
+          <Route path='login' element={<Login setUser={setUser}></Login>} />
+          <Route
+            path='dashboard'
+            element={
+              <ProtectedRoute user={user}>
+                <Dashboard user={user} />
+              </ProtectedRoute>
+            }
+          />
+          <Route path='*' element={<Error />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
 
